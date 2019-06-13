@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct ListView : View {
-    private let sizes = ["100.0", "140.0", "180.0", "220.0", "260.0", "300.0"]
-    private var sizes2 = ["100.0", "140.0", "180.0", "220.0", "260.0", "300.0"]
+    private let sizes = ["100.0", "120.0", "130.0", "140.0", "180.0", "220.0", "260.0", "300.0"]
+    private var sizes2 = ["100.0", "120.0", "130.0", "140.0", "180.0", "220.0", "260.0", "300.0"]
     
     var body: some View {
         List {
@@ -37,7 +37,8 @@ struct ListView : View {
                 }
                 EditButton()
             })
-        .listStyle(.grouped)
+            .listStyle(.grouped)
+//            .listStyle(.carousel)
     }
     
     func addSize2() {

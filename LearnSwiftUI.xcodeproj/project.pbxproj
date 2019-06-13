@@ -10,6 +10,7 @@
 		1852F97E22B0E43300BCEB82 /* UserInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 1852F97D22B0E43300BCEB82 /* UserInfo.json */; };
 		1852F98122B0E4A100BCEB82 /* UserInfoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1852F97F22B0E4A100BCEB82 /* UserInfoInfo.swift */; };
 		1852F98222B0E4A100BCEB82 /* UserInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1852F98022B0E4A100BCEB82 /* UserInfoData.swift */; };
+		18628E8822B2A3C600AF370A /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18628E8722B2A3C600AF370A /* LocationView.swift */; };
 		18CA1A6122B01F4900048395 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CA1A6022B01F4900048395 /* HomeView.swift */; };
 		18CA1A6322B0250900048395 /* MineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CA1A6222B0250900048395 /* MineView.swift */; };
 		18CA1A6522B0AB3800048395 /* SimpleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CA1A6422B0AB3800048395 /* SimpleViewController.swift */; };
@@ -31,6 +32,7 @@
 		1852F97D22B0E43300BCEB82 /* UserInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UserInfo.json; sourceTree = "<group>"; };
 		1852F97F22B0E4A100BCEB82 /* UserInfoInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoInfo.swift; sourceTree = "<group>"; };
 		1852F98022B0E4A100BCEB82 /* UserInfoData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoData.swift; sourceTree = "<group>"; };
+		18628E8722B2A3C600AF370A /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		18CA1A6022B01F4900048395 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		18CA1A6222B0250900048395 /* MineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineView.swift; sourceTree = "<group>"; };
 		18CA1A6422B0AB3800048395 /* SimpleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +63,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18628E8622B2801D00AF370A /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				18CA1A6222B0250900048395 /* MineView.swift */,
+				18628E8722B2A3C600AF370A /* LocationView.swift */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
 		18CA1A6622B0AB3F00048395 /* UIViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,7 +164,7 @@
 			children = (
 				18CA1A6022B01F4900048395 /* HomeView.swift */,
 				18EC754222A7C78E0011FFBA /* HomeListView.swift */,
-				18CA1A6222B0250900048395 /* MineView.swift */,
+				18628E8622B2801D00AF370A /* Mine */,
 				18EC75AA22AEA8980011FFBA /* Simple */,
 				18EC756622A82F760011FFBA /* List */,
 			);
@@ -267,6 +278,7 @@
 				18EC755922A7F4D30011FFBA /* ShowListInfo.swift in Sources */,
 				1852F98122B0E4A100BCEB82 /* UserInfoInfo.swift in Sources */,
 				18CA1A6322B0250900048395 /* MineView.swift in Sources */,
+				18628E8822B2A3C600AF370A /* LocationView.swift in Sources */,
 				18EC754322A7C78E0011FFBA /* HomeListView.swift in Sources */,
 				18EC755E22A826C50011FFBA /* ShowListRow.swift in Sources */,
 			);
