@@ -38,6 +38,12 @@ struct ListView : View {
                 EditButton()
             })
             .listStyle(.grouped)
+            .onAppear {
+                
+        }
+            .onDisappear {
+                
+        }
 //            .listStyle(.carousel)
     }
     

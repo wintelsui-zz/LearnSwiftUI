@@ -11,11 +11,12 @@ import SwiftUI
 struct SimpleView : View {
     
     //状态属性参数
+    @State private var alertHello = false
     @State private var toggleHello = false
     @State private var sliderHello = 10.0
     @State private var stepperHello : Int = 1
-    @State private var textFieldHello = ""
-    @State private var secureFieldHello = ""
+    @State private var textFieldHello: String = ""
+    @State private var secureFieldHello: String = ""
     @State private var datePickerHello = Date()
     @State private var pickerHelloIndex: Int = 1
     
@@ -28,74 +29,84 @@ struct SimpleView : View {
          
          VStack只有 HorizontalAlignment?
          **/
-        VStack(alignment: .center, spacing: 10.0) {
-            HStack {
-                Image(systemName: "person.fill")
-                Image("aragaki")
-                    .resizable()
-                    .frame(width: Length(64.0), height: Length(64.0))
-                    .aspectRatio(contentMode: .fit)
-                    .clipped()
-                    .clipShape(Circle())
-                
-                Text("Hello Text!")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .color(.black)
-                    .multilineTextAlignment(.center)
-                    .background(Color.yellow)
-                    .padding(.horizontal, 25.2)
-            }
-            //按钮
-            Button(action: helloButtonPressed) {
-                Text("Hello Button!")
-                }
-            Spacer().frame(height: 5.0)
-            //Switch
-            Toggle(isOn: $toggleHello) {
-                Text("Hello Toggle!")
-            }
-            TextField($textFieldHello,
-                      placeholder: Text("Hello TextField!"),
-                      onEditingChanged: { changed in
-                        print(" onEditingChanged:\(self.textFieldHello)")
-            },
-                      onCommit: helloTextFieldonCommit)
-            //Stepper
-            Stepper(value: $stepperHello, in: 1...10, step: 1) {
-                Text("Stepper:\(self.stepperHello)")
-            }
-            HStack{
-                Text("Hello Slider:\(String(format:"%.2f",self.sliderHello))")
-                Slider(value: $sliderHello, from: 0.0, through: 100.0)
-            }
-            DatePicker($datePickerHello, minimumDate: Date(timeIntervalSince1970: 0)
-                , maximumDate: Date(timeIntervalSinceNow: TimeInterval(25 * 365 * 24 * 60 * 60)), displayedComponents: [.date])
+        ScrollView(isScrollEnabled: true, alwaysBounceHorizontal: false, alwaysBounceVertical: true, showsHorizontalIndicator: false, showsVerticalIndicator: false) {
             
-            Text("Hello DatePicker:\(getDatePickerDateString())")
-            ScrollView(isScrollEnabled: true, alwaysBounceHorizontal: true, alwaysBounceVertical: false, showsHorizontalIndicator: true, showsVerticalIndicator: false) {
-                HStack{
-                    Text("Placeholder")
-                    Text("Placeholder")
-                    Text("Placeholder")
-                    Text("Placeholder")
-                    Text("Placeholder")
-                    Text("Placeholder")
-                    Text("Placeholder")
-                    Text("Placeholder")
-                    Text("Placeholder")
-                    Text("Placeholder")
+            
+            VStack(alignment: .center, spacing: 10.0) {
+                HStack {
+                    Image(systemName: "person.fill")
+                    Image("aragaki")
+                        .resizable()
+                        .frame(width: Length(64.0), height: Length(64.0))
+                        .aspectRatio(contentMode: .fit)
+                        .clipped()
+                        .clipShape(Circle())
+                    
+                    Text("Hello Text!")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .color(.black)
+                        .multilineTextAlignment(.center)
+                        .background(Color.yellow)
+                    //                    .padding(.horizontal, 25.2)
                 }
+                //按钮
+                Button(action: helloButtonPressed) {
+                    Text("Hello Button!")
+                    
+                    }.presentation($alertHello) { () -> Alert in
+                        Alert(title: Text("Hello Alert:Toggle will \(toggleHello == true ? "turn on" : "turn off")"))
+                }
+                Spacer().frame(height: 5.0)
+                //Switch
+                Toggle(isOn: $toggleHello) {
+                    Text("Hello Toggle!")
+                }
+                
+                HStack {
+                    Text("TextField：").color(.gray)
+                    
+                    TextField($textFieldHello,
+                              placeholder: Text("Hello TextField!"),
+                              onEditingChanged: { changed in
+                                print(" onEditingChanged:\(self.textFieldHello)")
+                    },
+                              onCommit: helloTextFieldonCommit)
+                }
+                //            HStack {
+                //                Text("Password：").color(.gray)
+                //
+                //                SecureField($secureFieldHello, placeholder: Text("Hello SecureField!")) {
+                //
+                //                    print("SecureField: \(self.secureFieldHello)")
+                //
+                //                    UIApplication.shared.keyWindow?.endEditing(true)
+                //                }
+                //            }
+                
+                //Stepper
+                Stepper(value: $stepperHello, in: 1...10, step: 1) {
+                    Text("Stepper:\(self.stepperHello)")
+                }
+                HStack{
+                    Text("Hello Slider:\(String(format:"%.2f",self.sliderHello))")
+                    Slider(value: $sliderHello, from: 0.0, through: 100.0)
+                }
+                DatePicker($datePickerHello, minimumDate: Date(timeIntervalSince1970: 0)
+                    , maximumDate: Date(timeIntervalSinceNow: TimeInterval(25 * 365 * 24 * 60 * 60)), displayedComponents: [.date])
+                
+                Text("Hello DatePicker:\(getDatePickerDateString())")
             }
-            }
-            .padding(.horizontal, 10.0)
+        }
             .navigationBarTitle(Text("Simple UIs"), displayMode: .inline)
     }
     
     func helloTextFieldonCommit() {
         print("helloTextFieldonCommit:\(self.textFieldHello)")
+        UIApplication.shared.keyWindow?.endEditing(true)
     }
     func helloButtonPressed() {
+        alertHello = true
         if self.toggleHello {
             //Toggle无动画
             self.toggleHello = !self.toggleHello

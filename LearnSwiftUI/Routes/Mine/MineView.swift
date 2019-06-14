@@ -11,7 +11,7 @@ import SwiftUI
 struct MineView : View {
     
     let userInfo = UserInfoData.userInfo
-    
+
     var body: some View {
         VStack(spacing: 10) {
             Spacer()
@@ -23,7 +23,9 @@ struct MineView : View {
                 .shadow(color: Color.gray, radius: 5, x: 2, y: 2)
             List{
                 Section {
-                    NavigationButton(destination: LocationView()) {
+                    NavigationButton(destination: LocationView()
+                        .onDisappear(perform: {print("LocationView onDisappear")})
+                        .onAppear(perform: {print("LocationView onAppear")})) {
                         HStack{
                         Image(systemName: "location.fill").renderingMode(.template)
                         Text("Location")
@@ -50,6 +52,7 @@ struct MineView : View {
                 .listStyle(.plain)
         }
     }
+    
 }
 
 #if DEBUG
