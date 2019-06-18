@@ -22,6 +22,9 @@ struct HomeView : View {
                 MineView()
                     .tabItemLabel(Text("Mine"))
                     .tag(2)
+                AppStoreView()
+                    .tabItemLabel(Text("Apps"))
+                    .tag(2)
                 
             }
                 .navigationBarTitle(Text("\(currectTab == 1 ? "UIs" : "Mine")"), displayMode: .inline)
