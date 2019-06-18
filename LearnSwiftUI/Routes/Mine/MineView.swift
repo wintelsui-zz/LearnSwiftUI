@@ -40,7 +40,7 @@ struct MineView : View {
                         Text("Collection")
                     }
                     
-                }.listRowPlatterColor(Color.yellow)
+                }
                 
                 Section {
                     HStack{

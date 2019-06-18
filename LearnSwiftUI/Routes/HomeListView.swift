@@ -44,10 +44,10 @@ struct HomeListView : View {
                 }
             }
             NavigationButton(destination: LocationView()) {
-                    HStack{
-                        Image(systemName: "map.fill")
-                        Text("MapKit View")
-                    }
+                HStack{
+                    Image(systemName: "map.fill")
+                    Text("MapKit View")
+                }
             }
             NavigationButton(destination: WebView()) {
                 HStack{
@@ -55,7 +55,6 @@ struct HomeListView : View {
                     Text("WKWebView View")
                 }
             }
-            
             NavigationButton(destination: ViewControllerAssistantView<SimpleViewController>()) {
                 HStack{
                     Image(systemName: "u.circle.fill")
@@ -68,16 +67,12 @@ struct HomeListView : View {
                     Text("UIViewController In SwitfUI")
                 }
             }
-            PresentationButton(
+            PresentationButton(destination: UseKeyboardAvoidingViewView()){
                 HStack{
                     Image(systemName: "rectangle.stack.fill")
                     Text("UIViewController Show")
                 }
-            , destination: UseKeyboardAvoidingViewView()) {
-                
             }
-
-            
             }
             .navigationBarTitle(Text("UIs"), displayMode: .inline)
     }
@@ -94,5 +89,6 @@ struct ContentView_Previews : PreviewProvider {
     }
 }
 #endif
+
 
 
