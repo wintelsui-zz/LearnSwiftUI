@@ -18,36 +18,30 @@ struct TextFieldView : View {
     
     var body: some View {
         VStack(spacing: 20.0) {
-            Spacer()
-                .frame(height: 20.0)
-            
             HStack {
-                Text("TextField：").color(.gray).multilineTextAlignment(.trailing).frame(width: 100.0)
+                Text("TextField：")
+                    .foregroundColor(Color.gray)
+                    .frame(width: 100.0)
                 
-                TextField($textFieldHello,
-                          placeholder: Text("Hello TextField!"),
-                          onEditingChanged: { changed in
-                            print(" onEditingChanged:\(self.textFieldHello)")
-                },
-                          onCommit: helloTextFieldonCommit)
-                    .textFieldStyle(.roundedBorder)
+                TextField("Hello TextField",
+                    text: $textFieldHello,
+                    onEditingChanged: { changed in
+
+                }, onCommit: helloTextFieldonCommit).textFieldStyle(RoundedBorderTextFieldStyle())
             }
             
             HStack {
-                Text("Password：").color(.gray).multilineTextAlignment(.trailing).frame(width: 100.0)
-                
-                SecureField($secureFieldHello, placeholder: Text("Hello SecureField!")) {
-                    
-                    print("SecureField: \(self.secureFieldHello)")
-                    
-                    UIApplication.shared.keyWindow?.endEditing(true)
-                    }
-                    .textFieldStyle(.roundedBorder)
+                Text("Password：")
+                    .foregroundColor(.gray)
+                    .frame(width: 100.0)
+                SecureField("Password：", text: $secureFieldHello) {
+                     UIApplication.shared.keyWindow?.endEditing(true)
+                }
             }
-            Spacer()
-            }
-            .padding(.horizontal, 20.0)
-            .navigationBarTitle(Text("Text/Secure Field"))
+        }
+//        .padding(.horizontal, 20.0)
+//        .navigationBarTitle(Text("Text/Secure Field"))
+
     }
     
     

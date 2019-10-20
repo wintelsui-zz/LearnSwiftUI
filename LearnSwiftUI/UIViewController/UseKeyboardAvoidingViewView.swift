@@ -14,22 +14,30 @@ struct UseKeyboardAvoidingViewView : View {
     
     var body: some View {
         KeyboardAvoidingView{
-            VStack(spacing: 20.0){
-                Spacer()
-                Text("UseKeyboardAvoidingViewView")
-                TextField($textFieldHello,
-                          placeholder: Text("Hello TextField!"),
-                          onEditingChanged: { changed in
-                            print(" onEditingChanged:\(self.textFieldHello)")
-                },
-                          onCommit: {
-                            print("helloTextFieldonCommit:\(self.textFieldHello)")
-                            UIApplication.shared.keyWindow?.endEditing(true)
-                })
-                    .textFieldStyle(.roundedBorder)
-                .multilineTextAlignment(.center)
+            VStack(alignment: .center) {
+                Text("UseKeyboardAvoidingView\nView")
+                    .font(.title)
+                    .fontWeight(.medium)
+                    .foregroundColor(Color.pink)
+                    .multilineTextAlignment(.center)
+                
+                Text("这个界面主要体现键盘效果")
+                    .font(.title)
+                    .fontWeight(.medium)
+                    .foregroundColor(Color.pink)
+                    .multilineTextAlignment(.center)
+                
+                TextField(/*@START_MENU_TOKEN@*/"Text Placeholder"/*@END_MENU_TOKEN@*/,
+                    text: $textFieldHello,
+                    onEditingChanged: { changed in
+                        
+                }, onCommit: {
+                    
+                    UIApplication.shared.keyWindow?.endEditing(true)
+                    
+                    }).textFieldStyle(RoundedBorderTextFieldStyle())
+                    .multilineTextAlignment(.center)
             }
-            .padding(.all, 20.0)
         }
     }
 }

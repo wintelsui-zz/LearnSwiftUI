@@ -13,44 +13,16 @@ struct MineView : View {
     let userInfo = UserInfoData.userInfo
 
     var body: some View {
-        VStack(spacing: 10) {
-            Spacer()
-                .frame(height: 5.0)
-            PhotoView(userInfo: userInfo)
-            Text(userInfo.fullname)
-                .font(Font.system(size: 18))
-                .fontWeight(.heavy)
-                .shadow(color: Color.gray, radius: 5, x: 2, y: 2)
-            List{
-                Section {
-                    NavigationButton(destination: LocationView()
-                        .onDisappear(perform: {print("LocationView onDisappear")})
-                        .onAppear(perform: {print("LocationView onAppear")})) {
-                        HStack{
-                        Image(systemName: "location.fill").renderingMode(.template)
-                        Text("Location")
-                        }
-                    }
-                    HStack{
-                        Image(systemName: "photo.on.rectangle.fill").renderingMode(.template)
-                        Text("Photos")
-                    }
-                    HStack{
-                        Image(systemName: "folder.fill").renderingMode(.template)
-                        Text("Collection")
-                    }
-                    
-                }
+            VStack(spacing: 10) {
+                PhotoView(userInfo: userInfo)
+                Text(userInfo.fullname)
+                    .font(Font.system(size: 18))
+                    .fontWeight(.heavy)
+                    .shadow(color: Color.gray, radius: 5, x: 2, y: 2)
                 
-                Section {
-                    HStack{
-                        Image(systemName: "wrench.fill").renderingMode(.template)
-                        Text("Setting")
-                    }
-                }
+                
             }
-                .listStyle(.plain)
-        }
+
     }
     
 }
@@ -70,8 +42,8 @@ struct PhotoView : View {
         
         return Image(userInfo.image)
             .resizable()
-            .frame(width: Length(180.0), height: Length(180.0))
             .aspectRatio(contentMode: .fit)
+            .frame(width: 180.0, height: 180.0)
             .clipped()
             .clipShape(Path(starPath()))
             .overlay(Path(starPath()).stroke(Color.white, lineWidth: 4))

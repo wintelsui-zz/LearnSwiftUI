@@ -9,56 +9,57 @@
 import SwiftUI
 
 struct ListView : View {
-    private let sizes = ["100.0", "120.0", "130.0", "140.0", "180.0", "220.0", "260.0", "300.0"]
-    private var sizes2 = ["100.0", "120.0", "130.0", "140.0", "180.0", "220.0", "260.0", "300.0"]
+    
+    private let sizes = [MyData(title:"100.0"),MyData(title: "120.0"),MyData(title: "130.0"),MyData(title: "140.0")]
+    private var sizes2 = [MyData(title:"100.0"),MyData(title: "120.0"),MyData(title: "130.0"),MyData(title: "140.0")]
     
     var body: some View {
-        List {
-            Section(header: Text("head 1")) {
-                ForEach(sizes.identified(by: \.self)) { s1 in
-                    Text("Date 1 \(s1)")
+        NavigationView {
+            List {
+                Section(header: Text("Section One")) {
+                    // ForEach 改版到现在被强制加了个 ID 非常不方便
+                    ForEach(sizes) { sub in
+                        Text("MyData 1 - \(sub.title)")
+                    }
+                }
+                Section(header: Text("Section Two")) {
+                    
+                    ForEach(sizes2) { sub in
+                        Text("MyData 2 - \(sub.title)")
+                    }
                 }
             }
-            Section(header: Text("head 2")) {
-                ForEach(sizes2.identified(by: \.self)) { s1 in
-                    Text("Date 2 \(s1)")
-                    }.onMove(perform: { (offset, toIndex) in
-                        //Here: i dont know how to use offset
-                    })
-                    .onDelete { (offset) in
-                        //Here: i dont know how to use offset
-                }
-                
-            }
-        }
+            .navigationBarTitle(Text("App Store"), displayMode: .inline)
             .navigationBarItems(trailing: HStack{
-                Button(action: addSize2){
+                Button(action: {
+                    //                    addSize2()
+                }){
                     Text("Add 2")
                 }
                 EditButton()
             })
-            .listStyle(.grouped)
-            .onAppear {
-                
+            
         }
-            .onDisappear {
-                
-        }
-//            .listStyle(.carousel)
     }
     
     func addSize2() {
 //        let num = arc4random() % 1024
-//        sizes2.append("\(num)")
-//
-//        Here:Cannot use mutating member on immutable value: 'self' is immutable
+//        sizes2.append(MyData(title: "\(num)"))
     }
 }
+
+struct MyData : Identifiable {
+    var id = UUID()
+    var title: String
+}
+
 
 #if DEBUG
 struct ListView_Previews : PreviewProvider {
     static var previews: some View {
         ListView()
+            .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
+            .previewDisplayName("iPhone 11 Pro")//"iPhone 11 Pro Max","iPhone SE"
     }
 }
 #endif

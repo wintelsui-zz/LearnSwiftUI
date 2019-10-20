@@ -72,7 +72,7 @@ public struct KeyboardAvoiding: ViewModifier {
 }
 
 public extension View {
-    func keyboardAvoiding() -> Self.Modified<KeyboardAvoiding> {
+    func keyboardAvoiding() -> ModifiedContent<Self, KeyboardAvoiding> {
         return modifier(KeyboardAvoiding())
     }
 }

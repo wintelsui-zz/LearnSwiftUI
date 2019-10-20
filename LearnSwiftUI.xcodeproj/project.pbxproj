@@ -34,6 +34,7 @@
 		18EC755E22A826C50011FFBA /* ShowListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC755D22A826C50011FFBA /* ShowListRow.swift */; };
 		18EC756522A82F6E0011FFBA /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC756422A82F6E0011FFBA /* ListView.swift */; };
 		18EC75A922AEA8900011FFBA /* SimpleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC75A822AEA8900011FFBA /* SimpleView.swift */; };
+		2BED0CD6235CCFAE00713DD1 /* PresentModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BED0CD5235CCFAE00713DD1 /* PresentModalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		18EC755D22A826C50011FFBA /* ShowListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListRow.swift; sourceTree = "<group>"; };
 		18EC756422A82F6E0011FFBA /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		18EC75A822AEA8900011FFBA /* SimpleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleView.swift; sourceTree = "<group>"; };
+		2BED0CD5235CCFAE00713DD1 /* PresentModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentModalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 				18CA1A6022B01F4900048395 /* HomeView.swift */,
 				18EC754222A7C78E0011FFBA /* HomeListView.swift */,
 				18D9786622B8C69400DAF861 /* AppStoreView.swift */,
+				2BED0CD5235CCFAE00713DD1 /* PresentModalView.swift */,
 				18628E8622B2801D00AF370A /* Mine */,
 				18EC75AA22AEA8980011FFBA /* Simple */,
 				18EC756622A82F760011FFBA /* List */,
@@ -306,6 +309,7 @@
 				18EC753F22A7C78E0011FFBA /* AppDelegate.swift in Sources */,
 				18EC754122A7C78E0011FFBA /* SceneDelegate.swift in Sources */,
 				18EC755922A7F4D30011FFBA /* ShowListInfo.swift in Sources */,
+				2BED0CD6235CCFAE00713DD1 /* PresentModalView.swift in Sources */,
 				1852F98122B0E4A100BCEB82 /* UserInfoInfo.swift in Sources */,
 				18CA1A6322B0250900048395 /* MineView.swift in Sources */,
 				18EBDFE722B3F27B002CF1A7 /* ViewControllerAssistantView.swift in Sources */,
