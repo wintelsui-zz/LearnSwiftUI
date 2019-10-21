@@ -34,6 +34,7 @@
 		18EC755E22A826C50011FFBA /* ShowListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC755D22A826C50011FFBA /* ShowListRow.swift */; };
 		18EC756522A82F6E0011FFBA /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC756422A82F6E0011FFBA /* ListView.swift */; };
 		18EC75A922AEA8900011FFBA /* SimpleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC75A822AEA8900011FFBA /* SimpleView.swift */; };
+		2B65F5BD235E16D000FF721D /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B65F5BC235E16D000FF721D /* FormView.swift */; };
 		2BED0CD6235CCFAE00713DD1 /* PresentModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BED0CD5235CCFAE00713DD1 /* PresentModalView.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		18EC755D22A826C50011FFBA /* ShowListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListRow.swift; sourceTree = "<group>"; };
 		18EC756422A82F6E0011FFBA /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		18EC75A822AEA8900011FFBA /* SimpleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleView.swift; sourceTree = "<group>"; };
+		2B65F5BC235E16D000FF721D /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 		2BED0CD5235CCFAE00713DD1 /* PresentModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentModalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -217,6 +219,7 @@
 				18EBDFE222B3A973002CF1A7 /* TextFieldView.swift */,
 				18EBDFEC22B40419002CF1A7 /* SegmentedControlView.swift */,
 				18EBDFEE22B40A27002CF1A7 /* PickerView.swift */,
+				2B65F5BC235E16D000FF721D /* FormView.swift */,
 			);
 			path = Simple;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B65F5BD235E16D000FF721D /* FormView.swift in Sources */,
 				18CA1A6522B0AB3800048395 /* SimpleViewController.swift in Sources */,
 				18EBDFE922B3F460002CF1A7 /* KeyboardAvoiding.swift in Sources */,
 				18EBDFEB22B3FCBB002CF1A7 /* UseKeyboardAvoidingViewView.swift in Sources */,

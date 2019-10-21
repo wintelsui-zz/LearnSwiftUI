@@ -13,7 +13,18 @@ struct SegmentedControlView : View {
     private let pickerHelloList = ["P1", "P2", "P3"]
     
     var body: some View {
-        Text("SegmentedControl 消失了")
+        VStack{
+            Text("SegmentedControl use Picker")
+            Picker("SegmentedControl", selection: $currentSegmentedControlIndex) {
+                ForEach(0 ..< pickerHelloList.count) { index in
+                    Text(self.pickerHelloList[index])
+                        .tag(index)
+                }
+                
+            }.pickerStyle(SegmentedPickerStyle())
+            ShowView(index: self.currentSegmentedControlIndex)
+            Spacer()
+        }
     }
 }
 

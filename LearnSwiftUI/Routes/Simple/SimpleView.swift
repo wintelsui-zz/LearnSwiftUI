@@ -14,11 +14,11 @@ struct SimpleView : View {
     @State private var alertHello = false
     @State private var toggleHello = false
     @State private var sliderHelloValue: Double = 0.0
-    @State private var stepperHello : Int = 1
     @State private var textFieldHello: String = ""
     @State private var secureFieldHello: String = ""
     @State private var datePickerHello = Date()
     @State private var pickerHelloIndex: Int = 1
+    @State private var stepperHello: Int = 0
     
     private let pickerHelloList = ["P1", "P2", "P3"]
     
@@ -73,6 +73,12 @@ struct SimpleView : View {
                     Text("Date Picker")
                 }
                 Text("Hello DatePicker:\(getDatePickerDateString())")
+                
+                Stepper(onIncrement: {
+                    self.stepperHello += 1
+                }, onDecrement: {
+                    self.stepperHello -= 1
+                }, label: { Text("Stepper: \(stepperHello)") })
             }
             
         }.navigationBarTitle(Text("Simple UIs"), displayMode: .inline)

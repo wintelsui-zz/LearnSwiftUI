@@ -14,32 +14,36 @@ struct ListView : View {
     private var sizes2 = [MyData(title:"100.0"),MyData(title: "120.0"),MyData(title: "130.0"),MyData(title: "140.0")]
     
     var body: some View {
-        NavigationView {
-            List {
-                Section(header: Text("Section One")) {
-                    // ForEach 改版到现在被强制加了个 ID 非常不方便
-                    ForEach(sizes) { sub in
-                        Text("MyData 1 - \(sub.title)")
-                    }
-                }
-                Section(header: Text("Section Two")) {
-                    
-                    ForEach(sizes2) { sub in
-                        Text("MyData 2 - \(sub.title)")
-                    }
+        List {
+            NavigationLink(destination: FormView()) {
+                HStack{
+                    Image(systemName: "hand.draw.fill")
+                    Text("Form View")
                 }
             }
-            .navigationBarTitle(Text("App Store"), displayMode: .inline)
-            .navigationBarItems(trailing: HStack{
-                Button(action: {
-                    //                    addSize2()
-                }){
-                    Text("Add 2")
+            Section(header: Text("Section One")) {
+                // ForEach 改版到现在被强制加了个 ID 非常不方便
+                ForEach(sizes) { sub in
+                    Text("MyData 1 - \(sub.title)")
                 }
-                EditButton()
-            })
-            
+            }
+            Section(header: Text("Section Two")) {
+                
+                ForEach(sizes2) { sub in
+                    Text("MyData 2 - \(sub.title)")
+                }
+            }
         }
+        .navigationBarTitle(Text("List"), displayMode: .inline)
+        .navigationBarItems(trailing: HStack{
+            Button(action: {
+                //                    addSize2()
+            }){
+                Text("Add 2")
+            }
+            EditButton()
+        })
+
     }
     
     func addSize2() {

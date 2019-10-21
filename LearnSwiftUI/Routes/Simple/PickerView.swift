@@ -11,8 +11,10 @@ import SwiftUI
 struct PickerView : View {
     
     @State private var pickerIndex = 0
-    
     private let pickerList = (0..<20).map { "\(2000 + $0)" }
+    
+    @State private var currentSegmentedControlIndex = 0
+    private let pickerHelloList = ["P1", "P2", "P3"]
     
     var body: some View {
         VStack {
@@ -22,6 +24,15 @@ struct PickerView : View {
                     Text(self.pickerList[$0]).tag($0)
                 }
             }
+            
+            Picker("SegmentedControl", selection: $currentSegmentedControlIndex) {
+                ForEach(0 ..< pickerHelloList.count) { index in
+                    Text(self.pickerHelloList[index])
+                        .tag(index)
+                }
+                
+            }.pickerStyle(SegmentedPickerStyle())
+            
             Spacer()
         }
             .navigationBarTitle(Text("Picker"))
