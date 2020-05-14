@@ -28,6 +28,14 @@ struct HomeView : View {
                 }.tag(2)
             }
             .navigationBarTitle(Text("\(currectTab == 1 ? "UIs" : "Mine")"), displayMode: .inline)
+        }.onDisappear {
+            self.startTimer()
+        }
+    }
+    
+    func startTimer() {
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (timer) in
+           
         }
     }
 }

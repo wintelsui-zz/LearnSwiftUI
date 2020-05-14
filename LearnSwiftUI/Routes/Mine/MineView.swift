@@ -13,6 +13,7 @@ struct MineView : View {
     let userInfo = UserInfoData.userInfo
 
     var body: some View {
+        
             VStack(spacing: 10) {
                 PhotoView(userInfo: userInfo)
                 Text(userInfo.fullname)
@@ -20,8 +21,18 @@ struct MineView : View {
                     .fontWeight(.heavy)
                     .shadow(color: Color.gray, radius: 5, x: 2, y: 2)
                 
+                List {
+                    NavigationLink(destination: TimerView()) {
+                        HStack{
+                            Image(systemName: "safari.fill")
+                            Text("use Timer,background color")
+                        }
+                    }
+                }
                 
             }
+        
+
 
     }
     
